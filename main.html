@@ -25,14 +25,13 @@
 </head>
 
 <body>
-
+    <!-- header section start -->
     <header>
-        <nav class="navbar bg-base-100 shadow-sm px-16 py-5">
+        <nav class="navbar bg-base-100 shadow-sm px-5 sm:px-16 py-5">
             <div class="flex-1 flex items-center justify-start gap-2 ">
                 <img class="w-8" src="./assets/github-logo.png" alt="">
                 <a class="hidden md:block text-2xl font-semibold primary-color ">GitHub Issues Tracker</a>
             </div>
-
             <div class="flex gap-2">
                 <div class="input input-bordered w-24 sm:w-auto">
                     <i class="fa-brands fa-sistrix secondary-color"></i>
@@ -42,8 +41,45 @@
             </div>
         </nav>
     </header>
+    <!-- header section end -->
 
 
+    <!-- main section start -->
+    <main>
+        <section class="container mx-auto px-5 mt-16">
+            <!-- button section -->
+            <div class="navbar bg-base-100 shadow-sm px-5 py-5 flex gap-3 justify-start rounded-md">
+                <button class="btn bg-white active sm:w-28"> All</button>
+                <button class="btn bg-white sm:w-28"> Open</button>
+                <button class="btn bg-white sm:w-28"> Close</button>
+            </div>
+
+            <!-- issue section -->
+            <div class="mt-4 navbar bg-base-100 shadow-sm px-5 py-5 flex flex-col items-start sm:flex-row sm:items-center  gap-3 justify-between rounded-md">
+
+                <div class="flex items-center justify-center gap-4">
+                    <img class="bg-blue-100 p-2 rounded-full" src="./assets/Aperture.png" alt="Aperture">
+                    <div>
+                        <h3 class="text-xl font-semibold primary-color">50 Issues</h3>
+                        <p class="secondary-color">Track and manage your project issues</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 items-center justify-center">
+                    <div class="flex items-center justify-center gap-2">
+                        <span class="block bg-green-700 rounded-full w-3 h-3"></span>
+                        <p class="font-medium primary-color text-[16px]">Open</p>
+                    </div>
+                    <div class="flex items-center justify-center gap-2">
+                        <span class="block bg-purple-700 rounded-full w-3 h-3"></span>
+                        <p class="font-medium primary-color text-[16px]">Close</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <!-- main section end -->
 
 
 

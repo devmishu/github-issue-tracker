@@ -17,3 +17,8 @@ body {
     color: #64748B;
 }
 
+.active{
+    background-color: #4A00FF;
+    color: white;
+}
+
