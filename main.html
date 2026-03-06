@@ -102,7 +102,8 @@
                             <div class="card-actions justify-start ">
                                 <div
                                     class="badge border border-gray-200 bg-[#FEECEC]  text-[#EF4444] rounded-full uppercase py-4 font-semibold">
-                                    <i class="fa-solid fa-bug"></i> bug</div>
+                                    <i class="fa-solid fa-bug"></i> bug
+                                </div>
                                 <div
                                     class="badge border border-[#FDE68A] bg-[#FFF8DB]  text-[#EF4444] rounded-full uppercase py-4 font-semibold">
                                     help wanted</div>
@@ -115,95 +116,8 @@
                         </div>
                     </div>
                     <!-- card -->
-                    <!-- card -->
-                    <div class="card bg-base-100 shadow-sm w-auto">
-                        <div class="p-5 space-y-3 border-b border-gray-300">
-                            <div class="card-actions justify-between">
-                                <img src="./assets/Open-Status.png" alt="Open Status">
-                                <div class="badge  bg-[#FEECEC]  text-[#EF4444] rounded-full uppercase font-semibold">
-                                    High</div>
-                            </div>
 
-                            <h3 class="text-[16px] mt-2 capitalize primary-color font-semibold">Fix navigation menu on
-                                mobile devices</h3>
-                            <p class="secondary-color">The navigation menu doesn't collapse properly on mobile
-                                devices...</p>
-                            <div class="card-actions justify-start ">
-                                <div
-                                    class="badge border border-gray-200 bg-[#FEECEC]  text-[#EF4444] rounded-full uppercase py-4 font-semibold">
-                                    <i class="fa-solid fa-bug"></i> bug</div>
-                                <div
-                                    class="badge border border-[#FDE68A] bg-[#FFF8DB]  text-[#EF4444] rounded-full uppercase py-4 font-semibold">
-                                    help wanted</div>
-                            </div>
-                        </div>
 
-                        <div class="mt-5 px-5 space-y-1 mb-5">
-                            <p class="secondary-color">#1 by john_doe</p>
-                            <p class="secondary-color">1/15/2024</p>
-                        </div>
-                    </div>
-                    <!-- card -->
-                    <!-- card -->
-                    <div class="card bg-base-100 shadow-sm w-auto">
-                        <div class="p-5 space-y-3 border-b border-gray-300">
-                            <div class="card-actions justify-between">
-                                <img src="./assets/Open-Status.png" alt="Open Status">
-                                <div class="badge  bg-[#FEECEC]  text-[#EF4444] rounded-full uppercase font-semibold">
-                                    High</div>
-                            </div>
-
-                            <h3 class="text-[16px] mt-2 capitalize primary-color font-semibold">Fix navigation menu on
-                                mobile devices</h3>
-                            <p class="secondary-color">The navigation menu doesn't collapse properly on mobile
-                                devices...</p>
-                            <!-- border-b border-gray-300 -->
-                            <div class="card-actions justify-start ">
-                                <div
-                                    class="badge border border-gray-200 bg-[#FEECEC]  text-[#EF4444] rounded-full uppercase py-4 font-semibold">
-                                    <i class="fa-solid fa-bug"></i> bug</div>
-                                <div
-                                    class="badge border border-[#FDE68A] bg-[#FFF8DB]  text-[#EF4444] rounded-full uppercase py-4 font-semibold">
-                                    help wanted</div>
-                            </div>
-                        </div>
-
-                        <div class="mt-5 px-5 space-y-1 mb-5">
-                            <p class="secondary-color">#1 by john_doe</p>
-                            <p class="secondary-color">1/15/2024</p>
-                        </div>
-                    </div>
-                    <!-- card -->
-                    <!-- card -->
-                    <div class="card bg-base-100 shadow-sm w-auto">
-                        <div class="p-5 space-y-3 border-b border-gray-300">
-                            <div class="card-actions justify-between">
-                                <img src="./assets/Open-Status.png" alt="Open Status">
-                                <div class="badge  bg-[#FEECEC]  text-[#EF4444] rounded-full uppercase font-semibold">
-                                    High</div>
-                            </div>
-
-                            <h3 class="text-[16px] mt-2 capitalize primary-color font-semibold">Fix navigation menu on
-                                mobile devices</h3>
-                            <p class="secondary-color">The navigation menu doesn't collapse properly on mobile
-                                devices...</p>
-                            <!-- border-b border-gray-300 -->
-                            <div class="card-actions justify-start ">
-                                <div
-                                    class="badge border border-gray-200 bg-[#FEECEC]  text-[#EF4444] rounded-full uppercase py-4 font-semibold">
-                                    <i class="fa-solid fa-bug"></i> bug</div>
-                                <div
-                                    class="badge border border-[#FDE68A] bg-[#FFF8DB]  text-[#EF4444] rounded-full uppercase py-4 font-semibold">
-                                    help wanted</div>
-                            </div>
-                        </div>
-
-                        <div class="mt-5 px-5 space-y-1 mb-5">
-                            <p class="secondary-color">#1 by john_doe</p>
-                            <p class="secondary-color">1/15/2024</p>
-                        </div>
-                    </div>
-                    <!-- card -->
 
 
                 </div>
@@ -211,6 +125,72 @@
 
             </div>
         </section>
+
+        <!-- modal section -->
+        <!-- Open the modal using ID.showModal() method -->
+        <button class="btn" onclick="my_modal_1.showModal()">open modal</button>
+        <dialog id="my_modal_1" class="modal">
+            <div class="modal-box">
+
+
+                <div class="modal-content card bg-base-100  w-auto">
+
+                    <div class="p-5 space-y-3 ">
+
+                        <h3 class="text-2xl font-bold mt-2 capitalize primary-color ">Fix navigation
+                            menu
+                            on
+                            mobile devices</h3>
+
+                        <div class="card-actions items-center justify-start">
+                            <div class="badge  bg-green-700  text-white rounded-full  font-medium p-4 ">
+                                Opened </div>
+                            <div class="flex items-center justify-center gap-1 secondary-color"> <span
+                                    class="block bg-green-700 rounded-full w-2 h-2 "></span>Opened by Fahim Ahmed
+                            </div>
+
+                            <div class="flex items-center justify-center gap-1 secondary-color"> <span
+                                    class="block bg-green-700 rounded-full w-2 h-2 "></span>22/02/2026</div>
+                        </div>
+
+                        <div class="card-actions justify-start ">
+                            <div
+                                class="badge border border-gray-200 bg-[#FEECEC]  text-[#EF4444] rounded-full uppercase py-4 font-semibold">
+                                <i class="fa-solid fa-bug"></i> bug
+                            </div>
+                            <div
+                                class="badge border border-[#FDE68A] bg-[#FFF8DB]  text-[#EF4444] rounded-full uppercase py-4 font-semibold">
+                                help wanted</div>
+                        </div>
+
+                        <p class="secondary-color">TThe navigation menu doesn't collapse properly on mobile devices.
+                            Need to fix the responsive behavior.</p>
+
+                        <div class="mt-5 mb-5 bg-[#F8FAFC] p-4 rounded-sm flex justify-start items-center gap-40">
+                            <div>
+                                <p class="secondary-color">Assignee:</p>
+                                <p class="primary-color  font-semibold">Fahim Ahmed</p>
+                            </div>
+                            <div>
+                                <p class="secondary-color">Priority:</p>
+                                <div class="badge  bg-red-600  text-white rounded-full uppercase font-medium py-3">
+                                    High</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn btn-primary">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+        <!-- modal section -->
 
     </main>
     <!-- main section end -->
