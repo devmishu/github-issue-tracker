@@ -1,0 +1,18 @@
+/* *{
+    border: 1px solid red;
+} */
+body {
+    font-family: "Geist", sans-serif;
+    background-color: #F8FAFC;
+}
+
+.primary-color{
+    color: #1F2937;
+}
+.blue-color{
+    color: #4A00FF;
+}
+
+.secondary-color{
+    color: #64748B;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Page</title>
+    <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
+
+    <!--css + tailwind + daisy ui -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- fontawsome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="h-screen flex flex-col items-center justify-center">
+
+    <header class="min-w-[500px] bg-white rounded-md shadow-md py-15">
+        <div class="mt-5 flex flex-col justify-center items-center  px-5">
+            <img src="./assets/github-logo.png" alt="">
+            <h2 class="mt-4 text-2xl font-semibold primary-color">GitHub Issues Tracker</h2>
+            <p class="secondary-color ">Sign in to manage your issues</p>
+        </div>
+
+        <div class="card-body ">
+            <fieldset class="fieldset">
+                <label class="label font-medium primary-color text-[16px]">Username</label>
+                <input type="text" class="input w-full rounded-lg" placeholder="Enter Username" />
+                <p class="blue-color ">Default: admin</p>
+
+                <label class="label font-medium primary-color text-[16px]">Password</label>
+                <input type="password" class="input w-full rounded-lg" placeholder="Enter Password" />
+                <p class="blue-color ">Default: admin123</p>
+                <button class="btn btn-primary mt-4 rounded-lg">Login</button>
+            </fieldset>
+        </div>
+    </header>
+    <script src="./script/login.js"></script>
+</body>
+</html>
