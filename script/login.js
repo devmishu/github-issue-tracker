@@ -18,3 +18,4 @@ loginBtn.addEventListener('click', () => {
         location.assign('main.html');
     }
 });
+

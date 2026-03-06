@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Page</title>
+    <title>Main | Page</title>
     <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
 
     <!--css + tailwind + daisy ui -->
@@ -24,14 +24,34 @@
 
 </head>
 
-<body class="h-screen flex flex-col items-center justify-center">
+<body>
 
-    <header class="min-w-[500px] bg-white rounded-md shadow-md py-15">
-        <div class="mt-5 flex flex-col justify-center items-center  px-5">
-            <img src="./assets/github-logo.png" alt="">
-            <h2 class="mt-4 text-2xl font-semibold primary-color">GitHub Issues Tracker</h2>
-            <p class="secondary-color ">Sign in to manage your issues</p>
-        </div>
+    <header>
+        <nav class="navbar bg-base-100 shadow-sm px-16 py-5">
+            <div class="flex-1 flex items-center justify-start gap-2 ">
+                <img class="w-8" src="./assets/github-logo.png" alt="">
+                <a class="hidden md:block text-2xl font-semibold primary-color ">GitHub Issues Tracker</a>
+            </div>
+
+            <div class="flex gap-2">
+                <div class="input input-bordered w-24 sm:w-auto">
+                    <i class="fa-brands fa-sistrix secondary-color"></i>
+                    <input class="placeholder:text-[#64748B]" type="text" placeholder="Search issues..." />
+                </div>
+                <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> New Issue</button>
+            </div>
+        </nav>
     </header>
+
+
+
+
+
+
+
+
+
+    <script src="./script/main.js"></script>
 </body>
+
 </html>
