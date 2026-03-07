@@ -109,13 +109,8 @@ const openIssuesShow = async () => {
 
     let openCardCount = 0;
 
-    issuesNumberCountElement.textContent = `0 Issues`;
-
-
     // allissus per item get
     allIsue.map(item => {
-        console.log(item);
-        // console.log((item.status === 'open').length);
         let date = new Date(item.createdAt).toLocaleDateString();
 
         const card = document.createElement('div');
@@ -162,10 +157,13 @@ const openIssuesShow = async () => {
             </div>
         `;
         if (item.status === 'open') {
-            openCardCount++;
             issuesCardContainerElement.append(card);
+            openCardCount++;
         }
     });
+
+    issuesNumberCountElement.textContent = `${openCardCount} Issues`;
+
     hideLoading();
 }
 
@@ -175,10 +173,8 @@ const closeIssuesShow = async () => {
     const res = await fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues');
     const data = await res.json();
     const allIsue = data.data;
-    let openCardCount = 0;
-    console.log(openCardCount);
+    let closeCardCount = 0;
 
-    issuesNumberCountElement.textContent = `0 Issues`;
 
     // allissus per item get
     allIsue.map(item => {
@@ -228,10 +224,12 @@ const closeIssuesShow = async () => {
             </div>
         `;
         if (item.status === 'closed') {
-            openCardCount++;
+            closeCardCount++;
             issuesCardContainerElement.append(card);
         }
     });
+
+    issuesNumberCountElement.textContent = `${closeCardCount} Issues`;
     hideLoading();
 }
 
