@@ -35,7 +35,8 @@
             <div class="flex gap-2">
                 <div class="input input-bordered w-24 sm:w-auto">
                     <i class="fa-brands fa-sistrix secondary-color"></i>
-                    <input id="search-field" class="placeholder:text-[#64748B]" type="text" placeholder="Search issues..." />
+                    <input id="search-field" class="placeholder:text-[#64748B]" type="text"
+                        placeholder="Search issues..." />
                 </div>
                 <button id="search-btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> New Issue</button>
             </div>
@@ -58,7 +59,7 @@
         <!-- button and issue section end -->
 
         <section class="container mx-auto px-5  mt-4 ">
-            <div class="bg-red-300 rounded-t-md">
+            <div class="bg-[#FBFBFB] rounded-t-md">
                 <!-- issue section -->
                 <div
                     class=" navbar bg-base-100 shadow-sm px-5 py-5 flex flex-col items-start sm:flex-row sm:items-center  gap-3 justify-between rounded-t-md border-b border-gray-300">
@@ -83,6 +84,10 @@
                     </div>
                 </div>
 
+                <div id="spinner" class="z-50 flex h-screen justify-center items-center">
+                    <span class="loading loading-spinner loading-xl"></span>
+                </div>
+
                 <!-- issu card section start -->
                 <div id="issues-card-container" class="p-5 bg-[#FBFBFB] grid gap-5 sm:grid-cols-2  xl:grid-cols-4">
 
@@ -100,7 +105,7 @@
 
 
                 <div id="modal-content" class=" card bg-base-100  w-auto">
-                   
+
                 </div>
 
                 <div class="modal-action">
@@ -112,7 +117,6 @@
             </div>
         </dialog>
         <!-- modal section -->
-
     </main>
     <!-- main section end -->
 
@@ -126,4 +130,3 @@
 </body>
 
 </html>
-
