@@ -4,6 +4,8 @@ const allIssuesBtnElement = document.getElementById('all-issues-btn');
 const openIssuesBtnElement = document.getElementById('open-issues-btn');
 const closeIssuesBtnElement = document.getElementById('close-issues-btn');
 
+const searchFieldInput = document.getElementById('search-field');
+const searchBtn = document.getElementById('search-btn');
 
 const allIssueBtnElement = document.querySelectorAll('.all-issue-btn');
 const issuesCardContainerElement = document.getElementById('issues-card-container');
@@ -33,7 +35,7 @@ const allIssuesShow = async () => {
         card.classList.add('card', 'bg-base-100', 'shadow-sm', 'w-auto', 'border-t-5');
         if (item.status === 'open') {
             card.classList.add('border-green-700');
-            statusImg= './assets/Open-Status.png'
+            statusImg = './assets/Open-Status.png'
         } else {
             card.classList.add('border-purple-700');
             statusImg = './assets/Closed- Status .png'
@@ -88,7 +90,6 @@ const openIssuesShow = async () => {
     const data = await res.json();
     const allIsue = data.data;
     let openCardCount = 0;
-    console.log(openCardCount);
 
     issuesNumberCountElement.textContent = `0 Issues`;
 
@@ -103,7 +104,7 @@ const openIssuesShow = async () => {
         card.classList.add('card', 'bg-base-100', 'shadow-sm', 'w-auto', 'border-t-5');
         if (item.status === 'open') {
             card.classList.add('border-green-700');
-             statusImg = './assets/Open-Status.png'
+            statusImg = './assets/Open-Status.png'
         }
 
 
@@ -217,6 +218,71 @@ const closeIssuesShow = async () => {
     // console.log(issuesCardContainerElement.length);
 }
 
+const searchIssue = async () => {
+    const searchText = searchFieldInput.value.trim().toLowerCase();
+    console.log(searchText);
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`);
+    const data = await res.json();
+    const searchResult = data.data;
+
+    searchResult.map(item => {
+        let date = new Date(item.createdAt).toLocaleDateString();
+
+        const card = document.createElement('div');
+        card.classList.add('card', 'bg-base-100', 'shadow-sm', 'w-auto', 'border-t-5');
+
+        if (item.status === 'open') {
+            card.classList.add('border-green-700');
+            statusImg = './assets/Open-Status.png'
+        } else {
+            card.classList.add('border-purple-700');
+            statusImg = './assets/Closed- Status .png'
+        }
+
+        card.innerHTML = `
+            <div class="p-5 space-y-3 border-b border-gray-300">
+
+                <div  class=" card-actions justify-between">
+                
+                    <div>
+                        <img class="issue-status" src="${statusImg}" alt="Open Status">
+                    </div>
+
+                    <div class="badge  bg-[#FEECEC]  text-[#EF4444] rounded-full uppercase font-semibold"> ${item.priority}</div>
+                </div>
+
+                <h3 onclick="modalShow(${item.id})" class="text-[16px] mt-2 capitalize primary-color font-semibold hover:cursor-pointer">${item.title}</h3>
+                <p class="secondary-color">${item.description}</p>
+
+                <div class="card-actions justify-start ">
+
+                   ${item.labels.map(lebel => {
+            return `
+                    <div class="badge border border-gray-200 bg-[#FEECEC]  text-[#EF4444] rounded-full uppercase py-4 font-semibold">
+                        <i class="fa-solid fa-bug"></i> ${lebel}
+                    </div>
+                    
+                         `
+        }).join('')}
+
+                    
+                    
+
+                </div>
+
+            </div>
+
+            <div class="mt-5 px-5 space-y-1 mb-5">
+                <p class="secondary-color">${item.author}</p>
+                <p class="secondary-color">${date}</p>
+            </div>
+        `;
+        issuesCardContainerElement.append(card);
+    });
+
+    issuesNumberCountElement.innerHTML = `${searchResult.length} Issues`;
+
+}
 
 // modalShow function
 const modalShow = async (id) => {
@@ -303,6 +369,20 @@ closeIssuesBtnElement.addEventListener('click', () => {
     issuesNumberCountElement.innerHTML = 0;
     closeIssuesShow();
 });
+
+searchBtn.addEventListener('click', () => {
+    issuesCardContainerElement.innerHTML = '';
+    searchIssue();
+    allIssueBtnElement.forEach(item => {
+        item.classList.remove('active');
+    })
+});
+
+
+
+
+
+
 
 
 init();
