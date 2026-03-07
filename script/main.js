@@ -374,20 +374,34 @@ const modalShow = async (id) => {
 // all button event lissener
 allIssuesBtnElement.addEventListener('click', () => {
     issuesCardContainerElement.innerHTML = '';
-    issuesNumberCountElement.innerHTML = 0;
+    // issuesNumberCountElement.innerHTML = 0;
     allIssuesShow();
+    allIssueBtnElement.forEach(item => {
+        item.classList.remove('active');
+    });
+    allIssuesBtnElement.classList.add('active');
+
 });
 
 openIssuesBtnElement.addEventListener('click', () => {
     issuesCardContainerElement.innerHTML = '';
-    issuesNumberCountElement.innerHTML = 0;
-    openIssuesShow()
+    // issuesNumberCountElement.innerHTML = 0;
+    openIssuesShow();
+
+    allIssueBtnElement.forEach(item => {
+        item.classList.remove('active');
+    });
+    openIssuesBtnElement.classList.add('active');
 });
 
 closeIssuesBtnElement.addEventListener('click', () => {
     issuesCardContainerElement.innerHTML = '';
-    issuesNumberCountElement.innerHTML = 0;
+    // issuesNumberCountElement.innerHTML = 0;
     closeIssuesShow();
+    allIssueBtnElement.forEach(item => {
+        item.classList.remove('active');
+    });
+    closeIssuesBtnElement.classList.add('active');
 });
 
 searchBtn.addEventListener('click', () => {
@@ -395,7 +409,7 @@ searchBtn.addEventListener('click', () => {
     searchIssue();
     allIssueBtnElement.forEach(item => {
         item.classList.remove('active');
-    })
+    });
 });
 
 
@@ -406,11 +420,3 @@ searchBtn.addEventListener('click', () => {
 
 
 init();
-
-
-
-/**
- * <div
-        class="badge border border-[#FDE68A] bg-[#FFF8DB]  text-[#EF4444] rounded-full uppercase py-4 font-semibold"> ${lebel}
-</div>
- */
