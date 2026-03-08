@@ -14,7 +14,7 @@ loginBtn.addEventListener('click', () => {
         alert('invalid password');
         return;
     } else {
-        alert('Login Sessusfull');
+        alert('Login successful ✅');
         location.assign('main.html');
     }
 });

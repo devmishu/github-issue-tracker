@@ -25,8 +25,6 @@ const showLoading = () => {
 // hide loading function
 const hideLoading = () => {
     spinnerElement.classList.add('hidden');
-    spinnerElement.classList.add('flex');
-
 }
 
 
@@ -44,6 +42,8 @@ const allIssuesShow = async () => {
     // allissus per item get
     allIsue.map(item => {
         let date = new Date(item.createdAt).toLocaleDateString();
+        let statusImg = '';
+        let priorityClass = '';
 
         const card = document.createElement('div');
 
@@ -56,6 +56,14 @@ const allIssuesShow = async () => {
             statusImg = './assets/Closed- Status .png'
         }
 
+        if (item.priority === 'high') {
+            priorityClass = 'high';
+        } else if (item.priority === 'medium') {
+            priorityClass = 'medium';
+        } else {
+            priorityClass = 'low';
+        }
+
         card.innerHTML = `
             <div class="p-5 space-y-3 border-b border-gray-300">
 
@@ -65,7 +73,7 @@ const allIssuesShow = async () => {
                         <img class="issue-status" src="${statusImg}" alt="Open Status">
                     </div>
 
-                    <div class="badge  bg-[#FEECEC]  text-[#EF4444] rounded-full uppercase font-semibold"> ${item.priority}</div>
+                    <div class="badge ${priorityClass} py-1 px-5 rounded-full uppercase font-semibold"> ${item.priority}</div>
                 </div>
 
                 <h3 onclick="modalShow(${item.id})" class="text-[16px] mt-2 capitalize primary-color font-semibold hover:cursor-pointer">${item.title}</h3>
@@ -75,8 +83,8 @@ const allIssuesShow = async () => {
 
                    ${item.labels.map(lebel => {
             return `
-                    <div class="badge border border-gray-200 bg-[#FEECEC]  text-[#EF4444] rounded-full uppercase py-4 font-semibold">
-                        <i class="fa-solid fa-bug"></i> ${lebel}
+                    <div class="highlight">
+                        ${lebel}
                     </div>
                     
                          `
@@ -112,12 +120,23 @@ const openIssuesShow = async () => {
     // allissus per item get
     allIsue.map(item => {
         let date = new Date(item.createdAt).toLocaleDateString();
+        let priorityClass = '';
+        let statusImg = '';
+
 
         const card = document.createElement('div');
         card.classList.add('card', 'bg-base-100', 'shadow-sm', 'w-auto', 'border-t-5');
         if (item.status === 'open') {
             card.classList.add('border-green-700');
             statusImg = './assets/Open-Status.png'
+        }
+
+        if (item.priority === 'high') {
+            priorityClass = 'high';
+        } else if (item.priority === 'medium') {
+            priorityClass = 'medium';
+        } else {
+            priorityClass = 'low';
         }
 
 
@@ -127,7 +146,7 @@ const openIssuesShow = async () => {
                 <div class="card-actions justify-between">
                     <img src="${statusImg}" alt="Open Status">
 
-                    <div class="badge  bg-[#FEECEC]  text-[#EF4444] rounded-full uppercase font-semibold"> ${item.priority}</div>
+                    <div class="badge ${priorityClass} py-1 px-5  bg-[#FEECEC]  text-[#EF4444] rounded-full uppercase font-semibold"> ${item.priority}</div>
                 </div>
 
                 <h3 onclick="modalShow(${item.id})" class="text-[16px] mt-2 capitalize primary-color font-semibold hover:cursor-pointer">${item.title}</h3>
@@ -137,8 +156,8 @@ const openIssuesShow = async () => {
 
                    ${item.labels.map(lebel => {
             return `
-                    <div class="badge border border-gray-200 bg-[#FEECEC]  text-[#EF4444] rounded-full uppercase py-4 font-semibold">
-                        <i class="fa-solid fa-bug"></i> ${lebel}
+                    <div class="highlight">
+                        ${lebel}
                     </div>
                     
                          `
@@ -169,7 +188,7 @@ const openIssuesShow = async () => {
 
 // close Issues show
 const closeIssuesShow = async () => {
-    showLoading();
+
     const res = await fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues');
     const data = await res.json();
     const allIsue = data.data;
@@ -178,7 +197,11 @@ const closeIssuesShow = async () => {
 
     // allissus per item get
     allIsue.map(item => {
+        showLoading();
         let date = new Date(item.createdAt).toLocaleDateString();
+        let priorityClass = '';
+        let statusImg = '';
+
 
         const card = document.createElement('div');
         card.classList.add('card', 'bg-base-100', 'shadow-sm', 'w-auto', 'border-t-5');
@@ -187,6 +210,13 @@ const closeIssuesShow = async () => {
             statusImg = './assets/Closed- Status .png'
         }
 
+        if (item.priority === 'high') {
+            priorityClass = 'high';
+        } else if (item.priority === 'medium') {
+            priorityClass = 'medium';
+        } else {
+            priorityClass = 'low';
+        }
 
         card.innerHTML = `
             <div class="p-5 space-y-3 border-b border-gray-300">
@@ -203,9 +233,10 @@ const closeIssuesShow = async () => {
                 <div class="card-actions justify-start ">
 
                    ${item.labels.map(lebel => {
+
             return `
-                    <div class="badge border border-gray-200 bg-[#FEECEC]  text-[#EF4444] rounded-full uppercase py-4 font-semibold">
-                        <i class="fa-solid fa-bug"></i> ${lebel}
+                    <div class="highlight">
+                        ${lebel}
                     </div>
                     
                          `
@@ -233,6 +264,7 @@ const closeIssuesShow = async () => {
     hideLoading();
 }
 
+// search issue
 const searchIssue = async () => {
     showLoading();
     const searchText = searchFieldInput.value.trim().toLowerCase();
@@ -243,6 +275,8 @@ const searchIssue = async () => {
 
     searchResult.map(item => {
         let date = new Date(item.createdAt).toLocaleDateString();
+        let statusImg = '';
+        let priorityClass = '';
 
         const card = document.createElement('div');
         card.classList.add('card', 'bg-base-100', 'shadow-sm', 'w-auto', 'border-t-5');
@@ -255,6 +289,14 @@ const searchIssue = async () => {
             statusImg = './assets/Closed- Status .png'
         }
 
+        if (item.priority === 'high') {
+            priorityClass = 'high';
+        } else if (item.priority === 'medium') {
+            priorityClass = 'medium';
+        } else {
+            priorityClass = 'low';
+        }
+
         card.innerHTML = `
             <div class="p-5 space-y-3 border-b border-gray-300">
 
@@ -264,7 +306,7 @@ const searchIssue = async () => {
                         <img class="issue-status" src="${statusImg}" alt="Open Status">
                     </div>
 
-                    <div class="badge  bg-[#FEECEC]  text-[#EF4444] rounded-full uppercase font-semibold"> ${item.priority}</div>
+                    <div class="badge ${priorityClass}  bg-[#FEECEC]  text-[#EF4444] rounded-full uppercase font-semibold"> ${item.priority}</div>
                 </div>
 
                 <h3 onclick="modalShow(${item.id})" class="text-[16px] mt-2 capitalize primary-color font-semibold hover:cursor-pointer">${item.title}</h3>
@@ -274,8 +316,8 @@ const searchIssue = async () => {
 
                    ${item.labels.map(lebel => {
             return `
-                    <div class="badge border border-gray-200 bg-[#FEECEC]  text-[#EF4444] rounded-full uppercase py-4 font-semibold">
-                        <i class="fa-solid fa-bug"></i> ${lebel}
+                    <div class="highlight">
+                        ${lebel}
                     </div>
                     
                          `
@@ -296,11 +338,18 @@ const searchIssue = async () => {
         issuesCardContainerElement.append(card);
     });
 
-    issuesNumberCountElement.innerHTML = `${searchResult.length} Issues`;
+    issuesNumberCountElement.innerHTML = `${searchResult.length} Issues found for: ${searchText}`;
+    if (searchResult.length === 0) {
+
+        issuesCardContainerElement.innerHTML = `
+              <div class="col-span-4 text-3xl sm:text-4xl  font-bold text-center py-20 px-5">
+                  <p>No issues found</p>
+              </div>
+        `;
+
+    }
     hideLoading();
 }
-
-
 
 // modalShow function
 const modalShow = async (id) => {
@@ -315,6 +364,15 @@ const modalShow = async (id) => {
     const modalDetail = data.data;
     console.log(modalDetail);
     let date = new Date(modalDetail.createdAt).toLocaleDateString();
+    let priorityClass = '';
+    if (modalDetail.priority === 'high') {
+        priorityClass = 'high';
+    } else if (modalDetail.priority === 'medium') {
+        priorityClass = 'medium';
+    } else {
+        priorityClass = 'low';
+    }
+
     modalContent.innerHTML = `
          <div  class="p-5 space-y-3">
 
@@ -334,8 +392,8 @@ const modalShow = async (id) => {
                         <div class="card-actions justify-start ">
                             ${modalDetail.labels.map(lebel => {
         return `
-                                    <div class="badge border border-gray-200 bg-[#FEECEC]  text-[#EF4444] rounded-full uppercase py-4 font-semibold">
-                                      <i class="fa-solid fa-bug"></i> ${lebel}
+                                    <div class="highlight">
+                                      </i> ${lebel}
                                     </div>
                     
                          `
@@ -353,18 +411,13 @@ const modalShow = async (id) => {
                             </div>
                             <div>
                                 <p class="secondary-color">Priority:</p>
-                                <div class="badge  bg-red-600  text-white rounded-full uppercase font-medium py-3">
+                                <div class="badge ${priorityClass}  bg-red-600  text-white rounded-full uppercase font-medium py-3">
                                     ${modalDetail.priority}</div>
                             </div>
                         </div>
                     </div>
     `;
 }
-
-
-
-
-
 
 
 

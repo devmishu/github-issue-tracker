@@ -1,6 +1,4 @@
-/* *{
-    border: 1px solid red;
-} */
+
 body {
     font-family: "Geist", sans-serif;
     /* background-color: #F8FAFC; */
@@ -20,5 +18,30 @@ body {
 .active{
     background-color: #4A00FF;
     color: white;
+}
+
+.high{
+    background-color: #FEECEC;
+    color: #EF4444;
+}
+.medium{
+    background-color: #FFF6D1;
+    color: #F59E0B;
+    padding: 12px;
+}
+.low{
+    background-color: #EEEFF2;
+    color: #9CA3AF;
+}
+
+.highlight{
+    border: 1px solid #FDE68A;
+    background-color:#FFF8DB;
+    color: #D97706;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    text-transform: uppercase;
+    border-radius: 9999px;
 }
 
