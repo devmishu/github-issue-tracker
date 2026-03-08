@@ -24,9 +24,9 @@
 
 </head>
 
-<body class="h-screen flex flex-col items-center justify-center">
+<body class="h-screen flex flex-col items-center justify-center ">
 
-    <header class="w-auto md:min-w-[500px] bg-white rounded-md shadow-md py-5 md:py-15">
+    <header class="w-auto md:min-w-[500px] bg-white rounded-md shadow-md py-6">
         <div class="mt-5 flex flex-col justify-center items-center  px-5">
             <img src="./assets/github-logo.png" alt="">
             <h2 class="mt-4 text-2xl font-semibold primary-color">GitHub Issues Tracker</h2>
@@ -39,13 +39,28 @@
                 <input id="username" type="text" class="input w-full rounded-lg" placeholder="Enter Username" />
                 <p class="blue-color ">Default: admin</p>
 
-                <label  class="label font-medium primary-color text-[16px]">Password</label>
+                <label class="label font-medium primary-color text-[16px]">Password</label>
                 <input id="password" type="password" class="input w-full rounded-lg" placeholder="Enter Password" />
                 <p class="blue-color ">Default: admin123</p>
                 <button id="login-btn" class="btn btn-primary mt-4 rounded-lg">Login</button>
             </fieldset>
         </div>
+
+        <div class="flex items-center mx-6 mb-4">
+            <hr class="flex-grow border-gray-200">
+            <span class="mx-4 secondary-color font-medium">OR</span>
+            <hr class="flex-grow border-gray-200">
+        </div>
+
+        <p class="text-center text-[14px] secondary-color mb-2">Demo Credentials:</p>
+        
+        <div class=" bg-[#F8FAFC] flex flex-col gap-1 justify-center items-center px-2 py-5 mx-6 rounded-sm">
+            <p><span class=" font-bold primary-color">Username:</span> admin</p>
+            <p><span class=" font-bold primary-color">Password:</span> admin123</p>
+        </div>
+
     </header>
     <script src="./script/login.js"></script>
 </body>
+
 </html>

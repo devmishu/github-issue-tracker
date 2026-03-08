@@ -13,9 +13,8 @@ const issuesCardContainerElement = document.getElementById('issues-card-containe
 issuesCardContainerElement.innerHTML = '';
 const issuesNumberCountElement = document.getElementById('issues-number-count');
 
-function init() {
-    allIssuesShow();
-}
+
+
 // show loading function
 const showLoading = () => {
     spinnerElement.classList.remove('hidden');
@@ -46,8 +45,9 @@ const allIssuesShow = async () => {
         let priorityClass = '';
 
         const card = document.createElement('div');
-
         card.classList.add('card', 'bg-base-100', 'shadow-sm', 'w-auto', 'border-t-5');
+        card.onclick = () => modalShow(item.id);
+
         if (item.status === 'open') {
             card.classList.add('border-green-700');
             statusImg = './assets/Open-Status.png'
@@ -126,6 +126,8 @@ const openIssuesShow = async () => {
 
         const card = document.createElement('div');
         card.classList.add('card', 'bg-base-100', 'shadow-sm', 'w-auto', 'border-t-5');
+        card.onclick = () => modalShow(item.id);
+
         if (item.status === 'open') {
             card.classList.add('border-green-700');
             statusImg = './assets/Open-Status.png'
@@ -205,6 +207,8 @@ const closeIssuesShow = async () => {
 
         const card = document.createElement('div');
         card.classList.add('card', 'bg-base-100', 'shadow-sm', 'w-auto', 'border-t-5');
+        card.onclick = () => modalShow(item.id);
+
         if (item.status === 'closed') {
             card.classList.add('border-purple-700');
             statusImg = './assets/Closed- Status .png'
@@ -280,6 +284,7 @@ const searchIssue = async () => {
 
         const card = document.createElement('div');
         card.classList.add('card', 'bg-base-100', 'shadow-sm', 'w-auto', 'border-t-5');
+        card.onclick = () => modalShow(item.id);
 
         if (item.status === 'open') {
             card.classList.add('border-green-700');
@@ -338,7 +343,7 @@ const searchIssue = async () => {
         issuesCardContainerElement.append(card);
     });
 
-    issuesNumberCountElement.innerHTML = `${searchResult.length} Issues found for: ${searchText}`;
+    issuesNumberCountElement.innerHTML = `${searchResult.length} Issues were found for: ${searchText}`;
     if (searchResult.length === 0) {
 
         issuesCardContainerElement.innerHTML = `
@@ -463,11 +468,4 @@ searchBtn.addEventListener('click', () => {
     });
 });
 
-
-
-
-
-
-
-
-init();
+allIssuesShow();
